@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface DeckViewerModalProps {
   isOpen: boolean;
@@ -8,7 +8,6 @@ interface DeckViewerModalProps {
 
 export const DeckViewerModal: React.FC<DeckViewerModalProps> = ({ isOpen, onClose }) => {
   const [currentSlide, setCurrentSlide] = useState<number>(1);
-
   const baseUrl = import.meta.env.BASE_URL;
 
   const slides = [
@@ -59,7 +58,7 @@ export const DeckViewerModal: React.FC<DeckViewerModalProps> = ({ isOpen, onClos
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return;
-      if (e.key === 'ArrowRight' || e.key === ' ') {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
         setCurrentSlide(prev => (prev < 7 ? prev + 1 : 1));
       } else if (e.key === 'ArrowLeft') {
         setCurrentSlide(prev => (prev > 1 ? prev - 1 : 7));
@@ -77,15 +76,15 @@ export const DeckViewerModal: React.FC<DeckViewerModalProps> = ({ isOpen, onClos
   const active = slides[currentSlide - 1];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 sm:p-6 lg:p-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-all duration-300">
       
-      {/* Modal Container */}
-      <div className="relative w-full max-w-6xl max-h-[95vh] flex flex-col bg-[#111111] border border-[#2B2B2B] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+      {/* Modal Dialog Card */}
+      <div className="relative w-full max-w-6xl bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden max-h-[92vh]">
         
-        {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#222222] bg-[#0E0E0E]">
+        {/* Header Bar */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/50">
           <div className="flex items-center space-x-3">
-            <span className="text-xs font-['Space_Grotesk'] font-bold text-[#A1FF5F] uppercase tracking-wider bg-[#A1FF5F]/10 border border-[#A1FF5F]/30 px-2.5 py-0.5 rounded">
+            <span className="text-xs font-['Space_Grotesk'] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded">
               SLIDE {currentSlide} OF 7
             </span>
             <span className="text-sm font-['Space_Grotesk'] font-bold text-white hidden sm:inline">
@@ -94,18 +93,9 @@ export const DeckViewerModal: React.FC<DeckViewerModalProps> = ({ isOpen, onClos
           </div>
 
           <div className="flex items-center space-x-2">
-            <a
-              href="https://www.figma.com/design/fjaJYRgj6kCZJ7NZCsLbsh"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs text-[#888888] hover:text-[#A1FF5F] flex items-center space-x-1 px-2.5 py-1 rounded border border-[#282828] hover:border-[#A1FF5F]/50 transition-all"
-            >
-              <ExternalLink className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Open in Figma</span>
-            </a>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg text-[#888888] hover:text-white hover:bg-[#222222] transition-all cursor-pointer"
+              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -113,61 +103,63 @@ export const DeckViewerModal: React.FC<DeckViewerModalProps> = ({ isOpen, onClos
         </div>
 
         {/* Slide Canvas View (16:9 Aspect) */}
-        <div className="flex-1 bg-[#0A0A0A] flex items-center justify-center p-4 relative group">
-          <div className="relative w-full aspect-[16/9] max-h-[65vh] rounded-2xl overflow-hidden border border-[#262626] shadow-2xl bg-black">
-            <img
-              src={active.src}
-              alt={active.title}
-              className="w-full h-full object-contain"
-            />
-          </div>
+        <div className="relative flex-1 bg-slate-950 flex items-center justify-center p-2 sm:p-4 overflow-hidden min-h-[300px]">
+          <img
+            src={active.src}
+            alt={active.title}
+            className="w-full h-auto max-h-[64vh] object-contain rounded-xl shadow-2xl border border-slate-800/60"
+          />
 
-          {/* Previous Arrow */}
+          {/* Nav Arrows */}
           <button
             onClick={() => setCurrentSlide(prev => (prev > 1 ? prev - 1 : 7))}
-            className="absolute left-6 p-3 rounded-full bg-black/70 hover:bg-[#A1FF5F] text-white hover:text-black border border-white/10 hover:border-[#A1FF5F] transition-all cursor-pointer"
+            className="absolute left-4 p-3 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700 transition-all cursor-pointer hover:scale-105 shadow-lg"
+            title="Previous slide"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
-
-          {/* Next Arrow */}
           <button
             onClick={() => setCurrentSlide(prev => (prev < 7 ? prev + 1 : 1))}
-            className="absolute right-6 p-3 rounded-full bg-black/70 hover:bg-[#A1FF5F] text-white hover:text-black border border-white/10 hover:border-[#A1FF5F] transition-all cursor-pointer"
+            className="absolute right-4 p-3 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700 transition-all cursor-pointer hover:scale-105 shadow-lg"
+            title="Next slide"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
 
-        {/* Modal Footer: Takeaway & Thumbnail Strip */}
-        <div className="px-6 py-4 border-t border-[#222222] bg-[#0E0E0E] space-y-3">
-          <div className="text-xs sm:text-sm text-[#CCCCCC]">
-            <span className="font-bold text-[#A1FF5F]">Presenter Takeaway:</span> {active.takeaway}
+        {/* Bottom Bar: Slide Takeaway & Thumbnail Strip */}
+        <div className="p-4 sm:p-5 border-t border-slate-800 bg-slate-950/80 space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+            <div className="flex items-center space-x-2">
+              <span className="font-['Space_Grotesk'] font-bold text-emerald-400">Presenter Takeaway:</span>
+              <span className="text-slate-300 font-medium">{active.takeaway}</span>
+            </div>
+            <span className="text-slate-500 hidden sm:inline">Use &larr; &rarr; arrow keys to navigate</span>
           </div>
 
-          {/* Thumbnails Row */}
-          <div className="grid grid-cols-7 gap-2 pt-1">
-            {slides.map((s) => (
+          {/* Thumbnail Strip */}
+          <div className="flex items-center space-x-2 overflow-x-auto pb-1 pt-1">
+            {slides.map(s => (
               <button
                 key={s.num}
                 onClick={() => setCurrentSlide(s.num)}
-                className={`relative aspect-[16/9] rounded-lg overflow-hidden border transition-all cursor-pointer ${
+                className={`relative shrink-0 rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
                   currentSlide === s.num
-                    ? 'border-[#A1FF5F] ring-2 ring-[#A1FF5F]/50 scale-105'
-                    : 'border-[#282828] opacity-50 hover:opacity-100'
+                    ? 'border-emerald-400 scale-105 shadow-md'
+                    : 'border-slate-800 opacity-60 hover:opacity-100'
                 }`}
               >
-                <img src={s.src} alt={s.title} className="w-full h-full object-cover" />
-                <span className="absolute bottom-1 right-1 text-[9px] font-bold px-1 rounded bg-black/80 text-white">
-                  {s.num}
-                </span>
+                <img
+                  src={s.src}
+                  alt={s.title}
+                  className="w-16 h-10 object-cover"
+                />
               </button>
             ))}
           </div>
         </div>
 
       </div>
-
     </div>
   );
 };

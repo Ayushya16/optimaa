@@ -14,7 +14,7 @@ export const App: React.FC = () => {
   const [isDeckOpen, setIsDeckOpen] = useState<boolean>(false);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-[#A1FF5F] selection:text-black">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 selection:bg-[#DCFCE7] selection:text-[#14532D]">
       {/* Top Sticky Navigation */}
       <Navbar onOpenDeck={() => setIsDeckOpen(true)} />
 

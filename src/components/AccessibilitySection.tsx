@@ -8,57 +8,63 @@ export const AccessibilitySection: React.FC = () => {
     morning: {
       time: "08:00 MORNING",
       app: "YouTube Devotional",
-      color: "#FFA048",
-      textColor: "text-[#FFA048]",
+      color: "#EA580C",
+      textColor: "text-amber-700",
+      pillColor: "bg-amber-100 text-amber-800",
       desc: "Auto-surfaces preferred prayer and devotional channels directly on the home screen without navigating nested folders or app drawers.",
       icon: Sun
     },
     afternoon: {
       time: "14:00 AFTERNOON",
       app: "WhatsApp Family Call",
-      color: "#A1FF5F",
-      textColor: "text-[#A1FF5F]",
+      color: "#16A34A",
+      textColor: "text-emerald-700",
+      pillColor: "bg-emerald-100 text-emerald-800",
       desc: "Pre-stages a 1-tap video call prompt to children and close relatives at routine daily check-in hours, avoiding contact list search.",
       icon: PhoneCall
     },
     evening: {
       time: "19:00 EVENING",
-      app: "Games & Updates",
-      color: "#FFFFFF",
-      textColor: "text-white",
-      desc: "Brings up casual puzzle games and family Facebook updates before bedtime, aligning with established evening unwinding habits.",
+      app: "Games & Family Updates",
+      color: "#0F172A",
+      textColor: "text-slate-800",
+      pillColor: "bg-slate-200 text-slate-800",
+      desc: "Brings up casual puzzle games and family photo updates before bedtime, aligning with established evening unwinding habits.",
       icon: Moon
     }
   };
 
+  const activeSlot = slotData[selectedTimeSlot];
+  const IconComponent = activeSlot.icon;
+
   return (
-    <section id="accessibility" className="py-24 border-b border-[#222222] bg-[#0E0B10]">
+    <section id="accessibility" className="py-24 border-b border-slate-200 bg-slate-50/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
         <div className="space-y-3">
-          <div className="text-[11px] font-['Space_Grotesk'] font-bold text-[#A1FF5F] uppercase tracking-widest flex items-center space-x-2">
-            <span className="w-2 h-2 rounded-full bg-[#A1FF5F]" />
-            <span>USE CASE 04 | OLDER &amp; DISABLED USERS (ACCESSIBILITY)</span>
+          <div className="text-xs font-['Space_Grotesk'] font-bold text-emerald-700 uppercase tracking-wider flex items-center space-x-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>USE CASE 04 | OLDER &amp; DISABLED USERS (D2C ACCESSIBILITY)</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-['Space_Grotesk'] font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-['Space_Grotesk'] font-bold text-slate-900 tracking-tight">
             Older users open the same few apps at the same times, so the phone should put them first.
           </h2>
         </div>
 
         {/* Top Feature: 24-Hour Circadian Arc Panel */}
-        <div className="bg-[#151119] border border-[#2A1E30] rounded-3xl p-6 sm:p-8 space-y-8">
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-8 shadow-md hover:shadow-lg transition-all duration-300">
           
-          <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
             <div>
-              <div className="text-xs font-['Space_Grotesk'] font-bold text-[#888888] uppercase tracking-wider">
+              <div className="text-xs font-['Space_Grotesk'] font-bold text-slate-500 uppercase tracking-wider">
                 24-HOUR CIRCADIAN APP SURFACING ARC
               </div>
-              <h3 className="text-xl sm:text-2xl font-['Space_Grotesk'] font-bold text-white mt-1">
+              <h3 className="text-xl sm:text-2xl font-['Space_Grotesk'] font-bold text-slate-900 mt-1">
                 Routine-Based Predictive App Surfacing
               </h3>
             </div>
-            <span className="text-xs font-['Space_Grotesk'] font-bold text-[#A1FF5F] bg-[#A1FF5F]/10 border border-[#A1FF5F]/30 px-3 py-1 rounded-full">
+            <span className="text-xs font-['Space_Grotesk'] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
               ELIMINATES COGNITIVE SEARCH FRICTION
             </span>
           </div>
@@ -69,177 +75,201 @@ export const AccessibilitySection: React.FC = () => {
               {/* Arc Path */}
               <path
                 d="M 50 110 C 150 15, 450 15, 550 110"
-                stroke="#33243C"
-                strokeWidth="2"
+                stroke="#E2E8F0"
+                strokeWidth="2.5"
                 strokeDasharray="4 4"
                 fill="none"
               />
               <path
                 d="M 50 110 C 150 15, 450 15, 550 110"
-                stroke="#FFA048"
-                strokeWidth="1.5"
+                stroke="#F59E0B"
+                strokeWidth="2"
                 fill="none"
-                opacity="0.6"
+                opacity="0.8"
               />
 
               {/* Baseline horizon */}
-              <line x1="30" y1="110" x2="570" y2="110" stroke="#33243C" strokeWidth="1.5" />
+              <line x1="30" y1="110" x2="570" y2="110" stroke="#CBD5E1" strokeWidth="1.5" />
 
               {/* Sunrise / Morning Node (08:00) */}
               <circle
                 cx="140"
                 cy="58"
                 r={selectedTimeSlot === 'morning' ? "12" : "8"}
-                fill="#FFA048"
-                className="cursor-pointer transition-all"
+                fill="#EA580C"
+                className="cursor-pointer transition-all duration-200"
                 onClick={() => setSelectedTimeSlot('morning')}
               />
-              <text x="140" y="38" textAnchor="middle" fill="#FFA048" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
+              <text x="140" y="38" textAnchor="middle" fill="#EA580C" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
                 08:00 SUNRISE
               </text>
 
-              {/* Midday Zenith Node (14:00) */}
+              {/* Midday Node (14:00) */}
               <circle
                 cx="300"
-                cy="28"
-                r={selectedTimeSlot === 'afternoon' ? "14" : "9"}
-                fill="#A1FF5F"
-                className="cursor-pointer transition-all"
+                cy="38"
+                r={selectedTimeSlot === 'afternoon' ? "12" : "8"}
+                fill="#16A34A"
+                className="cursor-pointer transition-all duration-200"
                 onClick={() => setSelectedTimeSlot('afternoon')}
               />
-              <text x="300" y="12" textAnchor="middle" fill="#A1FF5F" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
-                14:00 MIDDAY CALL
+              <text x="300" y="18" textAnchor="middle" fill="#16A34A" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
+                14:00 MIDDAY
               </text>
 
-              {/* Evening / Crescent Moon Node (19:00) */}
+              {/* Evening Node (19:00) */}
               <circle
                 cx="460"
                 cy="58"
                 r={selectedTimeSlot === 'evening' ? "12" : "8"}
-                fill="#FFFFFF"
-                className="cursor-pointer transition-all"
+                fill="#0F172A"
+                className="cursor-pointer transition-all duration-200"
                 onClick={() => setSelectedTimeSlot('evening')}
               />
-              <text x="460" y="38" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
+              <text x="460" y="38" textAnchor="middle" fill="#0F172A" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
                 19:00 EVENING
               </text>
             </svg>
           </div>
 
-          {/* 3 Interactive Cards matching the Arc Peaks */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {(Object.keys(slotData) as Array<keyof typeof slotData>).map((key) => {
-              const item = slotData[key];
-              const isSelected = selectedTimeSlot === key;
-              const IconComp = item.icon;
-              return (
-                <div
-                  key={key}
-                  onClick={() => setSelectedTimeSlot(key)}
-                  className={`p-5 rounded-2xl border transition-all cursor-pointer space-y-3 ${
-                    isSelected
-                      ? 'bg-[#201828] border-[#A1FF5F] shadow-lg'
-                      : 'bg-[#18131E] border-[#291F30] hover:border-[#40314C]'
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className={`text-[11px] font-['Space_Grotesk'] font-bold ${item.textColor}`}>
-                      {item.time}
-                    </span>
-                    <IconComp className={`w-4 h-4 ${item.textColor}`} />
-                  </div>
-                  <h4 className="font-['Space_Grotesk'] font-bold text-lg text-white">
-                    {item.app}
-                  </h4>
-                  <p className="text-xs text-[#AAAAAA] leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              );
-            })}
+          {/* Time Slot Buttons */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button
+              onClick={() => setSelectedTimeSlot('morning')}
+              className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer ${
+                selectedTimeSlot === 'morning'
+                  ? 'bg-amber-50 border-amber-500 shadow-sm -translate-y-0.5'
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              <div className="flex items-center space-x-2 text-xs font-bold text-amber-700">
+                <Sun className="w-4 h-4" />
+                <span>08:00 MORNING</span>
+              </div>
+              <div className="font-['Space_Grotesk'] font-bold text-base text-slate-900 mt-1">
+                YouTube Devotional
+              </div>
+              <div className="text-[11px] text-slate-500 mt-1">
+                Auto-surfaces prayer channels directly.
+              </div>
+            </button>
+
+            <button
+              onClick={() => setSelectedTimeSlot('afternoon')}
+              className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer ${
+                selectedTimeSlot === 'afternoon'
+                  ? 'bg-emerald-50 border-emerald-500 shadow-sm -translate-y-0.5'
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              <div className="flex items-center space-x-2 text-xs font-bold text-emerald-700">
+                <PhoneCall className="w-4 h-4" />
+                <span>14:00 AFTERNOON</span>
+              </div>
+              <div className="font-['Space_Grotesk'] font-bold text-base text-slate-900 mt-1">
+                WhatsApp Family Call
+              </div>
+              <div className="text-[11px] text-slate-500 mt-1">
+                Pre-stages 1-tap call to children.
+              </div>
+            </button>
+
+            <button
+              onClick={() => setSelectedTimeSlot('evening')}
+              className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer ${
+                selectedTimeSlot === 'evening'
+                  ? 'bg-slate-100 border-slate-500 shadow-sm -translate-y-0.5'
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              <div className="flex items-center space-x-2 text-xs font-bold text-slate-800">
+                <Moon className="w-4 h-4" />
+                <span>19:00 EVENING</span>
+              </div>
+              <div className="font-['Space_Grotesk'] font-bold text-base text-slate-900 mt-1">
+                Games &amp; Updates
+              </div>
+              <div className="text-[11px] text-slate-500 mt-1">
+                Presents puzzle games &amp; family feed.
+              </div>
+            </button>
+          </div>
+
+          {/* Dynamic Active Slot Inspection Card */}
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+            <div className="space-y-1">
+              <div className="flex items-center space-x-2">
+                <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${activeSlot.pillColor}`}>
+                  {activeSlot.time}
+                </span>
+                <span className="font-['Space_Grotesk'] font-bold text-slate-900 text-sm">
+                  {activeSlot.app}
+                </span>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                {activeSlot.desc}
+              </p>
+            </div>
+            <div className="shrink-0 flex items-center space-x-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-2xs">
+              <IconComponent className="w-4 h-4 text-slate-700" />
+              <span className="font-bold text-slate-800">1-Tap Auto-Surfaced</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Dual Onboarding Architecture: Passive Observation vs Caregiver Intake */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          
+          {/* Pathway A: Passive Observation */}
+          <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-md hover:shadow-lg transition-all duration-300">
+            <div className="flex items-center space-x-2.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+              <span className="text-xs font-['Space_Grotesk'] font-bold text-emerald-800 uppercase tracking-wider">
+                PATHWAY A &bull; INDEPENDENT USERS
+              </span>
+            </div>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-bold text-slate-900">
+              Passive 72h Habit Learning
+            </h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              If the senior already operates their device independently, Optimaa runs in the background for 2 to 3 days to establish their baseline circadian rhythm and typical touch coordinates.
+            </p>
+            <div className="pt-2 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+              <div>&bull; Zero configuration required from the user.</div>
+              <div>&bull; Adapts quietly without interrupting daily phone use.</div>
+              <div>&bull; Builds behavioral touch profiles on-chip.</div>
+            </div>
+          </div>
+
+          {/* Pathway B: Caregiver Guided Intake */}
+          <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-md hover:shadow-lg transition-all duration-300">
+            <div className="flex items-center space-x-2.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+              <span className="text-xs font-['Space_Grotesk'] font-bold text-amber-800 uppercase tracking-wider">
+                PATHWAY B &bull; ASSISTED FAMILIES
+              </span>
+            </div>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-bold text-slate-900">
+              Caregiver 5-Question Intake
+            </h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              If the senior struggles with modern smartphone interfaces, a child or caregiver completes a 5-question intake form to seed the initial app routine directly.
+            </p>
+            <div className="pt-2 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+              <div className="flex items-center space-x-1.5 text-amber-800 font-semibold">
+                <HeartHandshake className="w-4 h-4 text-amber-600" />
+                <span>Family Caregiver Setup Flow</span>
+              </div>
+              <div>&bull; Pre-configures family contacts and emergency numbers.</div>
+              <div>&bull; Seeds prayer, radio, or news channels instantly.</div>
+            </div>
           </div>
 
         </div>
 
-        {/* Bottom Split: Dual Onboarding Pathways & Accessibility Priority Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left: Fork Diagram (Dual Pathways) */}
-          <div className="lg:col-span-7 bg-[#141018] border border-[#2B1F32] rounded-3xl p-6 sm:p-8 space-y-6">
-            <div>
-              <div className="text-[11px] font-['Space_Grotesk'] font-bold text-[#888888] uppercase tracking-wider">
-                DUAL ONBOARDING PATHWAYS MERGING TO UNIFIED HOME SCREEN
-              </div>
-              <h3 className="text-xl sm:text-2xl font-['Space_Grotesk'] font-bold text-white mt-1">
-                Zero Cold-Start Friction
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-              
-              {/* Lane A & Lane B Stack */}
-              <div className="sm:col-span-6 space-y-4">
-                
-                {/* Lane A */}
-                <div className="bg-[#1A1420] border-2 border-[#A1FF5F] p-4 rounded-2xl space-y-1.5">
-                  <div className="text-[10px] font-['Space_Grotesk'] font-bold text-[#A1FF5F] uppercase tracking-wider">
-                    LANE A: PASSIVE OBSERVATION
-                  </div>
-                  <div className="text-xs text-[#E0E0E0] leading-relaxed">
-                    Phone monitors routines quietly for 2 to 3 days to map natural daily app triggers.
-                  </div>
-                </div>
-
-                {/* Lane B */}
-                <div className="bg-[#1A1420] border-2 border-[#FFA048] p-4 rounded-2xl space-y-1.5">
-                  <div className="text-[10px] font-['Space_Grotesk'] font-bold text-[#FFA048] uppercase tracking-wider">
-                    LANE B: GUIDED CAREGIVER SETUP
-                  </div>
-                  <div className="text-xs text-[#E0E0E0] leading-relaxed">
-                    Caregiver answers a 5-question intake on essential apps, contacts, and video call habits.
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Merge Arrow & Result */}
-              <div className="sm:col-span-6">
-                <div className="bg-[#1C1624] border border-white/20 p-5 rounded-2xl space-y-2">
-                  <div className="text-[10px] font-['Space_Grotesk'] font-bold text-[#A1FF5F] uppercase tracking-wider">
-                    UNIFIED INTERFACE RESULT
-                  </div>
-                  <h4 className="text-base font-['Space_Grotesk'] font-bold text-white">
-                    Routine Apps Surface Automatically
-                  </h4>
-                  <p className="text-xs text-[#AAAAAA] leading-relaxed">
-                    Both streams combine into a unified, clean launcher that surfaces exactly what is needed at each time of day without digging into nested menus or app drawers.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Right: Solid Lime Priority Card */}
-          <div className="lg:col-span-5 bg-[#A1FF5F] text-black rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl">
-            <div className="space-y-4">
-              <div className="text-xs font-['Space_Grotesk'] font-bold tracking-wider uppercase opacity-75">
-                CORE ACCESSIBILITY PRIORITY
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-black tracking-tight leading-snug">
-                Reaching daily apps easily matters more than battery tuning.
-              </h3>
-              <p className="text-sm text-black/90 leading-relaxed font-medium">
-                User reality: Older adults use a bounded loop of 4 to 5 apps and charge irregularly. Eliminating nested menus, launcher search, and call friction solves real frustration; battery micro-tuning is secondary to predictable, low-friction access to family and daily content.
-              </p>
-            </div>
-
-            <div className="pt-4 border-t border-black/15 text-xs text-black/80 font-bold flex items-center space-x-2">
-              <HeartHandshake className="w-4 h-4 text-black" />
-              <span>Dignified, independent technology interaction</span>
-            </div>
-          </div>
-
+        {/* Bottom Feature Card: Ease Beats Micro-Optimization */}
+        <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 text-emerald-900 font-['Space_Grotesk'] font-bold text-sm text-center shadow-xs">
+          For older and disabled users: zero-menu ease beats battery micro-tuning every single time.
         </div>
 
       </div>
