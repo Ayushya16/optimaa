@@ -7,18 +7,18 @@ export const IndustrialSection: React.FC = () => {
 
   const componentDetails: Record<string, { title: string; desc: string; tag: string }> = {
     trays: {
-      title: "Fractionation Trays (Stages 1-28)",
-      desc: "Vapor-liquid phase equilibrium calculated using NRTL-RK model. Stage convergence verified with solver residual 8.42e-12.",
-      tag: "THERMODYNAMIC SOLVER PROOF"
+      title: "DWSIM Fractionation Trays (Stages 1-28)",
+      desc: "Vapor-liquid phase equilibrium calculated via DWSIM's CAPE-OPEN thermodynamic packages (NRTL/Peng-Robinson). Stage convergence residual: 8.42e-12.",
+      tag: "DWSIM THERMODYNAMIC SOLVER PROOF"
     },
     condenser: {
       title: "Overhead Total Condenser & Reflux Drum",
-      desc: "Top distillate draw rate: 42.5 kmol/h. Reflux ratio staged at 2.45 based on previous successful separation campaigns.",
+      desc: "Distillate draw rate: 42.5 kmol/h. Reflux ratio pre-staged at 2.45 via DWSIM Python automation bridge based on historical column runs.",
       tag: "REFLUX SPECIFICATION"
     },
     feed: {
       title: "Inlet Feed Stage (Stage 14)",
-      desc: "Feed temperature 423.15 K, pressure 3.25 bar. Pre-populated from previous upstream reactor effluent log.",
+      desc: "Feed temperature 423.15 K, pressure 3.25 bar. Auto-populated directly from upstream reactor effluent stream definition.",
       tag: "STREAM MATCHING"
     },
     reboiler: {
@@ -36,22 +36,25 @@ export const IndustrialSection: React.FC = () => {
         <div className="space-y-3">
           <div className="text-xs font-['Space_Grotesk'] font-bold text-emerald-700 uppercase tracking-wider flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>USE CASE 01 | INDUSTRIAL SIMULATION &amp; CAD (B2B)</span>
+            <span>USE CASE 01 | DWSIM PROCESS SIMULATION (B2B)</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-['Space_Grotesk'] font-bold text-slate-900 tracking-tight">
-            Simulation setup is repetitive, so the tool can learn it and stage it for you.
+            Simulation setup is repetitive, so DWSIM can learn it and stage it for you.
           </h2>
+          <p className="text-sm text-slate-600 max-w-3xl">
+            Why DWSIM as our initial testing ground: It is fully open-source, scriptable via Python APIs, and free of closed proprietary licensing hurdles—making it the ideal environment to prove that solver convergence (residual &lt; 10^-11) guarantees zero hallucination.
+          </p>
         </div>
 
         {/* 2-Column Exhibit Architecture */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column: Aspen Setup Split */}
+          {/* Left Column: DWSIM Setup Split */}
           <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-md hover:shadow-lg transition-all duration-300">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
               <div>
                 <span className="text-xs font-['Space_Grotesk'] font-bold tracking-wider uppercase text-emerald-700">
-                  ASPEN &amp; CAD PARAMETER SETUP
+                  DWSIM OPEN SIMULATOR SETUP
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold tracking-tight text-slate-900 mt-1">
                   Manual vs Pre-Staged Setup
@@ -89,8 +92,8 @@ export const IndustrialSection: React.FC = () => {
                   <div>Inlet Temp: <span className="text-slate-400 font-normal">[ empty ]</span></div>
                   <div>Pressure: <span className="text-slate-400 font-normal">[ empty ]</span></div>
                   <div>Feed Flow: <span className="text-slate-400 font-normal">[ empty ]</span></div>
-                  <div>Thermodynamics: <span className="text-slate-400 font-normal">[ not set ]</span></div>
-                  <div>Workspace: <span className="text-slate-400 font-normal">[ default 2D ]</span></div>
+                  <div>Property Package: <span className="text-slate-400 font-normal">[ not set ]</span></div>
+                  <div>Flash Algorithm: <span className="text-slate-400 font-normal">[ default nested ]</span></div>
                 </div>
               </div>
 
@@ -103,15 +106,15 @@ export const IndustrialSection: React.FC = () => {
                   <div>Inlet Temp: <span className={isPreStaged ? "bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded transition-all" : "opacity-40"}>423.15 K</span></div>
                   <div>Pressure: <span className={isPreStaged ? "bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded transition-all" : "opacity-40"}>3.25 bar</span></div>
                   <div>Feed Flow: <span className={isPreStaged ? "bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded transition-all" : "opacity-40"}>125.0 kmol/h</span></div>
-                  <div>Thermodynamics: <span className={isPreStaged ? "bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded transition-all" : "opacity-40"}>NRTL-RK</span></div>
-                  <div>Workspace: <span className={isPreStaged ? "bg-emerald-600 text-white px-1.5 py-0.5 rounded transition-all" : "opacity-40"}>Auto-staged 3D</span></div>
+                  <div>Property Package: <span className={isPreStaged ? "bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded transition-all" : "opacity-40"}>NRTL / PR</span></div>
+                  <div>Flash Algorithm: <span className={isPreStaged ? "bg-emerald-600 text-white px-1.5 py-0.5 rounded transition-all" : "opacity-40"}>Auto-Staged Inside-Out</span></div>
                 </div>
               </div>
             </div>
 
             {/* Solver Residual Metric Banner */}
             <div className="bg-slate-900 text-white p-4 rounded-xl flex items-center justify-between text-xs font-['Space_Grotesk'] font-bold tracking-wide shadow-xs">
-              <span className="text-emerald-400">CHECKABLE SOLVER RESIDUAL: &lt; 10^-11</span>
+              <span className="text-emerald-400">CHECKABLE DWSIM SOLVER RESIDUAL: &lt; 10^-11</span>
               <span className="bg-emerald-500 text-slate-950 px-2.5 py-0.5 rounded text-[11px]">
                 CONVERGED
               </span>
@@ -121,15 +124,15 @@ export const IndustrialSection: React.FC = () => {
             <div className="space-y-2.5 text-sm text-slate-700">
               <div className="flex items-start space-x-2">
                 <span className="font-bold text-slate-900 shrink-0">• Setup friction:</span>
-                <span>Chemical and plastics engineers enter identical thermodynamic models, dimensions, and feed parameters before every single run.</span>
+                <span>Chemical engineering students and process modelers enter identical thermodynamic property packages, binary parameters, and feed streams before every single simulation run.</span>
               </div>
               <div className="flex items-start space-x-2">
-                <span className="font-bold text-slate-900 shrink-0">• In-context staging:</span>
-                <span>Recognizes workflow progress (e.g. finishing 2D sketches) and automatically prepares the Y-axis 3D workspace.</span>
+                <span className="font-bold text-slate-900 shrink-0">• Open Python APIs:</span>
+                <span>DWSIM exposes scriptable Python automation interfaces, allowing Optimaa to pre-populate flowsheet properties directly without fragile UI macro workarounds.</span>
               </div>
               <div className="flex items-start space-x-2">
-                <span className="font-bold text-slate-900 shrink-0">• Action-first design:</span>
-                <span>Stages validated defaults directly; early mistakes (2D vs 3D) are overridden by the user to retrain local weights.</span>
+                <span className="font-bold text-slate-900 shrink-0">• Deterministic proof:</span>
+                <span>Unlike probabilistic LLMs that hallucinate, every staged parameter set is validated against DWSIM thermodynamic flash solver convergence before execution.</span>
               </div>
             </div>
           </div>
@@ -147,21 +150,21 @@ export const IndustrialSection: React.FC = () => {
                   <div className="w-5 h-5 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center shrink-0">1</div>
                   <div>
                     <span className="text-slate-900 font-bold block">Observe normal setup routines</span>
-                    <span className="text-slate-500">Watches parameter habits and view sequences over the first 2 days.</span>
+                    <span className="text-slate-500">Watches property package selections and stream definitions over initial uses.</span>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3 text-xs">
                   <div className="w-5 h-5 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center shrink-0">2</div>
                   <div>
                     <span className="text-slate-900 font-bold block">Auto-stage the next mode</span>
-                    <span className="text-slate-500">Pre-fills validated parameters and prepares the next workflow view.</span>
+                    <span className="text-slate-500">Pre-fills validated parameters and prepares the distillation flowsheet view.</span>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3 text-xs">
                   <div className="w-5 h-5 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center shrink-0">3</div>
                   <div>
                     <span className="text-slate-900 font-bold block">User corrects and calibrates</span>
-                    <span className="text-slate-500">Operator overrides instantly retrain local model weights.</span>
+                    <span className="text-slate-500">Operator overrides instantly retrain local parameter weights.</span>
                   </div>
                 </div>
               </div>
@@ -170,18 +173,18 @@ export const IndustrialSection: React.FC = () => {
             {/* Sector Fit Matrix with Harvey Balls */}
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-3 shadow-xs">
               <div className="text-xs font-['Space_Grotesk'] font-bold text-slate-500 uppercase tracking-wider">
-                Sector Fit Assessment:
+                Sector Fit Assessment &amp; Initial Proving Ground:
               </div>
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between items-center py-1.5 border-b border-slate-200">
-                  <span className="text-slate-800 font-medium">Chemical Simulation</span>
+                  <span className="text-slate-800 font-medium">DWSIM Process Simulation</span>
                   <div className="flex items-center space-x-1.5 text-emerald-700 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                    <span>Full (Residual &lt; 10^-11 check)</span>
+                    <span>Prime Proving Ground (Open-source, Python API)</span>
                   </div>
                 </div>
                 <div className="flex justify-between items-center py-1.5 border-b border-slate-200">
-                  <span className="text-slate-800 font-medium">Plastics Manufacturing</span>
+                  <span className="text-slate-800 font-medium">Plastics &amp; Mold Manufacturing</span>
                   <div className="flex items-center space-x-1.5 text-emerald-700 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                     <span>Full (Standardized mold cycles)</span>
@@ -191,20 +194,20 @@ export const IndustrialSection: React.FC = () => {
                   <span className="text-slate-800 font-medium">CAD &amp; 3D Modeling</span>
                   <div className="flex items-center space-x-1.5 text-amber-700 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full border border-amber-500 bg-amber-400" />
-                    <span>Half (Repetitive axis toggling)</span>
+                    <span>Half (Repetitive axis &amp; sketch toggling)</span>
                   </div>
                 </div>
                 <div className="flex justify-between items-center py-1.5">
-                  <span className="text-slate-800 font-medium">Automotive Testing</span>
+                  <span className="text-slate-800 font-medium">Automotive Testing Suites</span>
                   <div className="flex items-center space-x-1.5 text-slate-400 font-medium">
                     <span className="w-2.5 h-2.5 rounded-full border border-slate-400" />
-                    <span>Empty (Toolchains already automated)</span>
+                    <span>Empty (Toolchains already heavily automated)</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Interactive Aspen Fractionation Column Flowsheet */}
+            {/* Interactive DWSIM Distillation Column Flowsheet */}
             <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-4 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
@@ -212,7 +215,7 @@ export const IndustrialSection: React.FC = () => {
                     PHYSICAL GROUND TRUTH BENCHMARK
                   </div>
                   <h4 className="text-sm font-['Space_Grotesk'] font-bold text-slate-900">
-                    Aspen Plus Fractionation Column
+                    DWSIM Distillation Column Flowsheet
                   </h4>
                 </div>
                 <Activity className="w-4 h-4 text-emerald-600" />
@@ -271,7 +274,7 @@ export const IndustrialSection: React.FC = () => {
 
             {/* Bottom Callout Banner */}
             <div className="bg-amber-100 border border-amber-300 text-amber-900 font-['Space_Grotesk'] font-bold text-xs p-3.5 rounded-xl text-center shadow-xs">
-              Chemical engineering goes first: solver residual (&lt; 10^-11) is mathematically checkable.
+              DWSIM goes first: open-source Python API and checkable solver residuals (&lt; 10^-11).
             </div>
 
           </div>

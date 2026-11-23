@@ -12,11 +12,14 @@ export const PrinciplesSection: React.FC = () => {
         <div className="space-y-3">
           <div className="text-xs font-['Space_Grotesk'] font-bold text-emerald-700 uppercase tracking-wider flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>HOW WE BUILD | SYSTEM PHILOSOPHY</span>
+            <span>HOW WE BUILD | SYSTEM PHILOSOPHY &amp; CORE KPIS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-['Space_Grotesk'] font-bold text-slate-900 tracking-tight">
-            Four rules shape every decision we make.
+            Four engineering rules and measurable product KPIs.
           </h2>
+          <p className="text-sm text-slate-600 max-w-3xl">
+            Rather than relying on abstract claims, Optimaa is governed by four strict architectural constraints and product-specific benchmarks.
+          </p>
         </div>
 
         {/* 2x2 Coordinate Quadrant */}
@@ -26,66 +29,98 @@ export const PrinciplesSection: React.FC = () => {
             
             {/* Quadrant 1: People & Agency */}
             <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-2.5">
-                <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                <span className="text-xs font-['Space_Grotesk'] font-bold text-emerald-800 tracking-wider uppercase">
-                  PEOPLE &amp; AGENCY
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                  <span className="text-xs font-['Space_Grotesk'] font-bold text-emerald-800 tracking-wider uppercase">
+                    PEOPLE &amp; AGENCY
+                  </span>
+                </div>
+                <span className="text-[11px] font-bold font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                  TARGET: &gt; 80% ACCEPTANCE
                 </span>
               </div>
               <h3 className="text-2xl font-['Space_Grotesk'] font-bold text-slate-900">
                 Assist, Don&apos;t Replace
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Explicitly rejects automation that eliminates jobs; designed strictly to augment human operators and keep users in command of their tools and decisions.
+                Explicitly rejects automation that replaces jobs; user stays in command of every decision. When user overrides a staged setting, local model weights update immediately.
               </p>
+              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500">
+                <strong>Measurable KPI:</strong> &gt; 80% of pre-staged parameter recommendations accepted without manual override after 72h baseline.
+              </div>
             </div>
 
             {/* Quadrant 2: Physics & Proof */}
             <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-2.5">
-                <div className="w-3 h-3 rounded-full bg-amber-500" />
-                <span className="text-xs font-['Space_Grotesk'] font-bold text-amber-800 tracking-wider uppercase">
-                  PHYSICS &amp; PROOF
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-3 h-3 rounded-full bg-amber-500" />
+                  <span className="text-xs font-['Space_Grotesk'] font-bold text-amber-800 tracking-wider uppercase">
+                    PHYSICS &amp; PROOF
+                  </span>
+                </div>
+                <span className="text-[11px] font-bold font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800">
+                  RESIDUAL &lt; 10^-11
                 </span>
               </div>
               <h3 className="text-2xl font-['Space_Grotesk'] font-bold text-slate-900">
-                Verifiable Convergence
+                Deterministic Verification
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Solves AI hallucination by anchoring predictions to checkable physical and solver bounds (e.g. Aspen thermodynamic residual &lt; 10^-11).
+                Eliminates AI hallucination by anchoring pre-staging to deterministic DWSIM thermodynamic flash solver convergence before triggering flowsheet execution.
               </p>
+              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500">
+                <strong>Measurable KPI:</strong> Zero unvalidated parameters executed; 100% of staged flowsheet variables pass solver mathematical balance checks.
+              </div>
             </div>
 
             {/* Quadrant 3: Privacy Boundary */}
             <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-2.5">
-                <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                <span className="text-xs font-['Space_Grotesk'] font-bold text-emerald-800 tracking-wider uppercase">
-                  PRIVACY BOUNDARY
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                  <span className="text-xs font-['Space_Grotesk'] font-bold text-emerald-800 tracking-wider uppercase">
+                    PRIVACY BOUNDARY
+                  </span>
+                </div>
+                <span className="text-[11px] font-bold font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                  0 FRAMES / TOKENS
                 </span>
               </div>
               <h3 className="text-2xl font-['Space_Grotesk'] font-bold text-slate-900">
                 Automatic Self-Blur
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Hardware exclusion of banking, credentials, and personal docs. Flags open questions around enterprise pattern data governance.
+                Instant hardware-level freeze when banking, passwords, or confidential documents open. Zero background screen frames or keystroke tokens stored.
               </p>
+              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500">
+                <strong>Measurable KPI:</strong> 100% zero-leakage window isolation; sensitive credentials are never stored in memory or sent to the cloud.
+              </div>
             </div>
 
-            {/* Quadrant 4: Environmental Runtime */}
+            {/* Quadrant 4: System Overhead */}
             <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-2.5">
-                <div className="w-3 h-3 rounded-full bg-amber-500" />
-                <span className="text-xs font-['Space_Grotesk'] font-bold text-amber-800 tracking-wider uppercase">
-                  ENVIRONMENTAL RUNTIME
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-3 h-3 rounded-full bg-amber-500" />
+                  <span className="text-xs font-['Space_Grotesk'] font-bold text-amber-800 tracking-wider uppercase">
+                    SYSTEM OVERHEAD
+                  </span>
+                </div>
+                <span className="text-[11px] font-bold font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800">
+                  &lt; 1.5% CPU &bull; &lt; 20MB RAM
                 </span>
               </div>
               <h3 className="text-2xl font-['Space_Grotesk'] font-bold text-slate-900">
-                Low-Power Footprint
+                Low-Overhead Runtime
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Accounts for device battery draw, runtime compute, and carbon credit impact as first-class architectural constraints from day one.
+                Operates silently on-chip with negligible battery draw and zero perceptible input latency during the 72h observation period.
               </p>
+              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500">
+                <strong>Measurable KPI:</strong> &lt; 1.5% average CPU background utilization; zero frame drops or typing delays during active use.
+              </div>
             </div>
 
           </div>

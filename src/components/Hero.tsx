@@ -11,7 +11,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
   const tabData = {
     industrial: {
       title: "Industrial Software (B2B)",
-      subtitle: "AutoCAD, Aspen Simulation, 3D Workspaces",
+      subtitle: "AutoCAD, DWSIM Simulation, 3D Workspaces",
       badge: "PARAMETER PRE-STAGING",
       color: "#16A34A",
       textColor: "text-emerald-700",
@@ -19,7 +19,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
       pillBg: "bg-emerald-100 text-emerald-800",
       metrics: "Deterministic Solver Alignment",
       desc: "Observes setup routines, eliminates repetitive thermodynamic/dimension entry, and pre-stages the next workspace mode based on established patterns.",
-      actionText: "See Aspen Solver Ground Truth",
+      actionText: "See DWSIM Solver Ground Truth",
       targetId: "#industrial"
     },
     corporate: {
@@ -172,7 +172,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
                     }`}
                   >
                     <div className="text-xs font-['Space_Grotesk'] font-bold text-emerald-700">01. Industrial</div>
-                    <div className="text-[11px] text-slate-500 truncate">Aspen &amp; CAD</div>
+                    <div className="text-[11px] text-slate-500 truncate">DWSIM &amp; CAD</div>
                   </button>
 
                   <button

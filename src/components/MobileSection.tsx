@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Lock, EyeOff } from 'lucide-react';
+import { Lock, EyeOff, CheckCircle } from 'lucide-react';
 
 export const MobileSection: React.FC = () => {
   const [typedText, setTypedText] = useState<string>("T");
@@ -26,11 +26,14 @@ export const MobileSection: React.FC = () => {
         <div className="space-y-3">
           <div className="text-xs font-['Space_Grotesk'] font-bold text-amber-700 uppercase tracking-wider flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-            <span>USE CASE 03 | PERSONAL MOBILE OPTIMIZATION (B2C &amp; D2C)</span>
+            <span>USE CASE 03 | PERSONAL MOBILE &amp; PROVEN AMBIENT TECH</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-['Space_Grotesk'] font-bold text-slate-900 tracking-tight">
-            The phone learns your habits over 2 to 3 days, and banking apps stay off the record.
+            Assistive AI is already proven on phones, and sensitive apps stay off the record.
           </h2>
+          <p className="text-sm text-slate-600 max-w-3xl">
+            You already use ambient AI without realizing it: modern smartphone keyboards (such as Apple iOS QuickType) dynamically expand touch hitboxes based on letter probability without asking for prompts. Optimaa takes this exact proven principle and scales it to desktop applications and full workflows.
+          </p>
         </div>
 
         {/* 3-Part Architecture: Left Card, Center Phone Simulator, Right Card */}
@@ -101,18 +104,18 @@ export const MobileSection: React.FC = () => {
                   <span>System runs silently for first 48 to 72 hours, recording typing trajectory, routine apps, and input speed.</span>
                 </div>
                 <div className="flex items-start space-x-2">
-                  <span className="font-bold text-slate-900 shrink-0">• Battery threshold:</span>
+                  <span className="font-bold text-slate-900 shrink-0">• Resource balancing:</span>
                   <span>Adjusts CPU background draw dynamically, throttling background inference when battery falls below 20%.</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <span className="font-bold text-slate-900 shrink-0">• On-device safety:</span>
-                  <span>Key logging is excluded; hitboxes adapt on-chip via an isolated input module with zero cloud transmission.</span>
+                  <span>Keystrokes are never logged to cloud servers; adaptation models compute exclusively on-chip.</span>
                 </div>
               </div>
             </div>
 
             <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-[11px] text-amber-900 font-semibold">
-              Learning state: {activeTelemetryHour < 48 ? "Passive observation only" : "Active predictive touch staging enabled"}
+              Learning state: {activeTelemetryHour < 48 ? "Passive observation only" : "Active predictive staging enabled"}
             </div>
           </div>
 
@@ -248,36 +251,39 @@ export const MobileSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Predictive Interaction Card */}
+          {/* Right Column: Precedent & Expansion Card */}
           <div className="lg:col-span-4 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-md hover:shadow-lg transition-all duration-300">
             <div className="space-y-4">
               <div className="text-xs font-['Space_Grotesk'] font-bold tracking-wider uppercase text-emerald-700">
-                PREDICTIVE TOUCH
+                EXISTING PRECEDENT &rarr; OUR EXPANSION
               </div>
               <h3 className="text-2xl font-['Space_Grotesk'] font-bold text-slate-900">
-                Dynamic Hitbox &amp; Motor Staging
+                Expanding Beyond Keyboards
               </h3>
 
-              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 text-xs">
-                <div className="font-bold text-slate-800">Physical Touch Geometry</div>
-                <p className="text-slate-600 leading-relaxed text-[11px]">
-                  Touch coordinates drift during one-handed use or transit. Optimaa learns individual tap centroids and expands hitboxes dynamically before the finger lands.
+              <div className="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 space-y-2 text-xs">
+                <div className="font-bold text-emerald-900 flex items-center space-x-1.5">
+                  <CheckCircle className="w-4 h-4 text-emerald-600" />
+                  <span>Proven in iOS Keyboards:</span>
+                </div>
+                <p className="text-emerald-800 leading-relaxed text-[11px]">
+                  Apple iOS already expands invisible touch hitboxes around probable next keys. Users never see it, but typing accuracy jumps by ~35%. This proves users love ambient assistance when it doesn&apos;t require chat prompts.
                 </p>
               </div>
 
               {/* Bullets with Bold Lead-ins */}
               <div className="space-y-2.5 text-xs text-slate-600">
                 <div className="flex items-start space-x-2">
-                  <span className="font-bold text-slate-900 shrink-0">• Centroid recalibration:</span>
-                  <span>Tracks touch distributions over 72 hours, expanding target zones for frequent digraphs like &apos;TH&apos;, &apos;ER&apos;, and &apos;IN&apos;.</span>
+                  <span className="font-bold text-slate-900 shrink-0">• Optimaa&apos;s expansion:</span>
+                  <span>We take this exact ambient principle into full desktop software—pre-filling parameters, staging next modes, and collapsing tedious menus.</span>
                 </div>
                 <div className="flex items-start space-x-2">
-                  <span className="font-bold text-slate-900 shrink-0">• Privacy self-blur:</span>
-                  <span>Operating system window watcher immediately halts tracking whenever a banking or password field is displayed.</span>
+                  <span className="font-bold text-slate-900 shrink-0">• Hardware self-blur:</span>
+                  <span>Window watchers detect banking apps and password managers, halting all recording with zero cloud telemetry.</span>
                 </div>
                 <div className="flex items-start space-x-2">
-                  <span className="font-bold text-slate-900 shrink-0">• Motor ease:</span>
-                  <span>Reduces backspacing frequency by up to 35% for fast typists and trembling hands without changing visual key sizes.</span>
+                  <span className="font-bold text-slate-900 shrink-0">• Zero chat prompt fatigue:</span>
+                  <span>Actions are staged in-context directly in your existing tools rather than forcing you into a separate chatbot window.</span>
                 </div>
               </div>
             </div>

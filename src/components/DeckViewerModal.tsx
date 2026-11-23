@@ -19,9 +19,9 @@ export const DeckViewerModal: React.FC<DeckViewerModalProps> = ({ isOpen, onClos
     },
     {
       num: 2,
-      title: "Slide 2: Industrial Simulation & Aspen Setup",
+      title: "Slide 2: Industrial Simulation & DWSIM Setup",
       src: `${baseUrl}slides/slide2.png`,
-      takeaway: "Proving ground: Solvers deterministically converge (residual < 10^-11), eliminating repetitive setup before simulation runs."
+      takeaway: "Proving ground: Open-source CAPE-OPEN DWSIM solvers converge (residual < 10^-11), eliminating repetitive setup before runs."
     },
     {
       num: 3,
@@ -33,7 +33,7 @@ export const DeckViewerModal: React.FC<DeckViewerModalProps> = ({ isOpen, onClos
       num: 4,
       title: "Slide 4: Personal Phone OS & Self-Blur",
       src: `${baseUrl}slides/slide4.png`,
-      takeaway: "Predictive Touch: Dynamic keyboard hitboxes expand based on typing trajectory; banking apps auto-blur."
+      takeaway: "Predictive Assist: Proven iOS hitbox expansion principle extended across desktop workflows; banking apps auto-blur."
     },
     {
       num: 5,
@@ -45,13 +45,13 @@ export const DeckViewerModal: React.FC<DeckViewerModalProps> = ({ isOpen, onClos
       num: 6,
       title: "Slide 6: Core System Principles",
       src: `${baseUrl}slides/slide6.png`,
-      takeaway: "2x2 Matrix: People & Agency, Physics & Proof, Privacy Boundary, Low-Power Footprint."
+      takeaway: "4 Engineering KPIs: > 80% acceptance, residual < 10^-11, 0 telemetry/frames stored, < 1.5% CPU & 20MB RAM."
     },
     {
       num: 7,
       title: "Slide 7: Roadmap & Open Strategic Questions",
       src: `${baseUrl}slides/slide7.png`,
-      takeaway: "Strategic Gates: 2D risk scatter plot and 4-phase validation plan before committing heavy capital."
+      takeaway: "Strategic Gates: Clear 3-question evaluation matrix and 4-phase lean validation plan before heavy capital."
     }
   ];
 
