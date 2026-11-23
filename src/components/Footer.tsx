@@ -17,7 +17,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDeck }) => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-12 border-b border-slate-100">
           <div className="space-y-2">
             <div className="font-['Space_Grotesk'] font-bold text-lg text-slate-900 tracking-wider">
-              OPTIMAA <span className="text-emerald-600">/</span> AMBIENT AI
+              OPTIMAA
             </div>
             <p className="text-xs text-slate-500 max-w-md">
               An assistive AI architecture designed to observe unscripted software routines, stage contextual settings, and preserve human employment.
