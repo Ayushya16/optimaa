@@ -1,258 +1,186 @@
 import React, { useState } from 'react';
-import { Terminal, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Cpu } from 'lucide-react';
 
 interface HeroProps {
   onOpenDeck: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
-  const [activeTab, setActiveTab] = useState<'industrial' | 'corporate' | 'mobile' | 'accessibility'>('industrial');
+  const [activeTab, setActiveTab] = useState<'dwsim' | 'touch' | 'elderly'>('dwsim');
 
-  const tabData = {
-    industrial: {
-      title: "Industrial Software (B2B)",
-      subtitle: "AutoCAD, DWSIM Simulation, 3D Workspaces",
-      badge: "PARAMETER PRE-STAGING",
-      color: "#16A34A",
-      textColor: "text-emerald-700",
-      activeBg: "bg-emerald-50 border-emerald-500",
-      pillBg: "bg-emerald-100 text-emerald-800",
-      metrics: "Deterministic Solver Alignment",
-      desc: "Observes setup routines, eliminates repetitive thermodynamic/dimension entry, and pre-stages the next workspace mode based on established patterns.",
-      actionText: "See DWSIM Solver Ground Truth",
-      targetId: "#industrial"
+  const examples = {
+    dwsim: {
+      tag: "Chemical Engineering",
+      software: "DWSIM Process Simulator",
+      routine: "Setting up a distillation column",
+      without: "Re-entering the same thermodynamic models (NRTL/Peng-Robinson), inlet temperatures (423.15 K), pressure (3.25 bar), and 28 tray stages manually every morning.",
+      withOptimaa: "Optimaa recognizes your habitual column flowsheet, pre-stages all 28 stage parameters, and verifies mathematical convergence (residual < 10^-11) before you click Run.",
+      badge: "Validated by math, not hallucination"
     },
-    corporate: {
-      title: "Non-Technical Corporate (B2B)",
-      subtitle: "Product Managers, Analysts, GTM Leads",
-      badge: "MULTI-APP ORCHESTRATION",
-      color: "#EA580C",
-      textColor: "text-amber-700",
-      activeBg: "bg-amber-50 border-amber-500",
-      pillBg: "bg-amber-100 text-amber-800",
-      metrics: "Cross-Tool Pipeline Collapse",
-      desc: "Tracks product launch stages, bridging disconnected docs, spreadsheets, and analytics into a unified action queue without manual copy-paste.",
-      actionText: "Explore Multi-App Orchestration",
-      targetId: "#corporate"
+    touch: {
+      tag: "Smartphone & Desktop Touch",
+      software: "Predictive Hitbox Expansion",
+      routine: "Typing and navigating workflows",
+      without: "Hunting through menus or mis-tapping small buttons on touchscreen and trackpad interfaces.",
+      withOptimaa: "Like iPhone's keyboard secretly expanding hitboxes for likely next letters, Optimaa predicts your next action and enlarges click targets before your finger lands.",
+      badge: "Proven iOS QuickType precedent"
     },
-    mobile: {
-      title: "Personal Phone OS (B2C)",
-      subtitle: "Dynamic Hitboxes & Hardware Self-Blur",
-      badge: "PREDICTIVE TOUCH",
-      color: "#EA580C",
-      textColor: "text-amber-700",
-      activeBg: "bg-amber-50 border-amber-500",
-      pillBg: "bg-amber-100 text-amber-800",
-      metrics: "72h Adaptive Telemetry Ramp",
-      desc: "Invisibly expands hitboxes for probable next keys based on finger trajectory. Halts recording automatically on banking and personal apps.",
-      actionText: "Try Interactive Keyboard Hitbox",
-      targetId: "#mobile"
-    },
-    accessibility: {
-      title: "Older & Disabled Users (D2C)",
-      subtitle: "24-Hour Circadian Surfacing",
-      badge: "ZERO-MENU ACCESS",
-      color: "#16A34A",
-      textColor: "text-emerald-700",
-      activeBg: "bg-emerald-50 border-emerald-500",
-      pillBg: "bg-emerald-100 text-emerald-800",
-      metrics: "3 Daily Routine Anchors",
-      desc: "Dynamically surfaces devotionals, family video calls, and evening updates at routine hours. Eliminating menu friction beats battery micro-tuning.",
-      actionText: "View 24h Circadian Arc",
-      targetId: "#accessibility"
+    elderly: {
+      tag: "Senior Accessibility",
+      software: "Simplified Smartphone UI",
+      routine: "Daily phone navigation for grandparents",
+      without: "Forcing older users to navigate confusing home screens, app drawers, and nested menus just to call family.",
+      withOptimaa: "Surfaces the right 1 or 2 apps based on daily routine: morning devotional at 8 AM, 1-tap family video call at 2 PM, evening updates at 7 PM.",
+      badge: "Zero-menu daily routine"
     }
   };
 
-  const current = tabData[activeTab];
+  const current = examples[activeTab];
 
   return (
-    <section id="overview" className="relative pt-12 pb-24 overflow-hidden border-b border-slate-200 bg-gradient-to-b from-white via-slate-50/80 to-slate-100/50 tech-grid">
-      {/* Background Ambient Splatter Glows */}
-      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-200/25 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 -right-48 w-96 h-96 bg-amber-200/25 rounded-full blur-3xl pointer-events-none" />
+    <section id="overview" className="relative pt-12 pb-20 border-b border-slate-200 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        {/* Top Header Block */}
+        <div className="max-w-3xl space-y-5">
+          <div className="inline-flex items-center space-x-2 text-xs font-['Space_Grotesk'] font-bold text-slate-700 bg-slate-100 border border-slate-200 px-3 py-1 rounded-full">
+            <span>Optimaa &bull; Idea-Stage Startup &bull; BITS Pilani Incubation</span>
+          </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Column: Core Positioning */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center space-x-2 text-xs font-['Space_Grotesk'] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50/90 border border-emerald-200 px-3.5 py-1 rounded-full shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>OPTIMAA &bull; PRODUCT STRATEGY &amp; CONCEPT SPEC</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-['Space_Grotesk'] font-bold tracking-tight text-slate-900 leading-[1.12]">
+            An assistant that learns how you work—and sets up your next step.
+          </h1>
+
+          <p className="text-lg text-slate-600 leading-relaxed font-normal">
+            Most AI tools force you to type prompts into a chat box. Optimaa runs quietly in the background on your device, observes repetitive routines for 2 to 3 days, and pre-stages the parameters and tools you need before you even ask.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4 pt-2">
+            <button
+              onClick={onOpenDeck}
+              className="inline-flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white font-['Space_Grotesk'] font-bold text-xs uppercase px-5 py-3 rounded-xl transition-all shadow-sm cursor-pointer"
+            >
+              <span>View 7-Slide Pitch Deck</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            <a
+              href="#industrial"
+              className="inline-flex items-center space-x-2 text-slate-700 hover:text-slate-900 font-['Space_Grotesk'] font-semibold text-xs border border-slate-200 hover:border-slate-300 bg-slate-50 px-4 py-3 rounded-xl transition-all"
+            >
+              <span>See How It Works in DWSIM</span>
+            </a>
+          </div>
+
+          {/* Founders attribution */}
+          <div className="text-xs text-slate-500 pt-1">
+            Co-Founded by <strong className="text-slate-800 font-semibold">Ayushya Ramesh Ojha</strong> &amp; <strong className="text-slate-800 font-semibold">Aryan Jain</strong> &bull; Students at BITS Pilani
+          </div>
+        </div>
+
+        {/* Concrete Side-by-Side Reality: What Optimaa Actually Does */}
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+            <div>
+              <span className="text-[11px] font-['Space_Grotesk'] font-bold uppercase tracking-wider text-slate-500">
+                CONCRETE DEMONSTRATION
+              </span>
+              <h2 className="text-xl sm:text-2xl font-['Space_Grotesk'] font-bold text-slate-900 mt-0.5">
+                What this looks like in practice
+              </h2>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-['Space_Grotesk'] font-bold tracking-tight text-slate-900 leading-[1.08]">
-              Assistive AI Architecture: <br />
-              <span className="text-emerald-600">In-Context Workflow</span> <br />
-              Optimization Engine
-            </h1>
-
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
-              An in-context platform that observes unscripted device routines for 2 to 3 days, learns recurring workflows and settings, and proactively executes next steps via direct software control rather than prompt engineering.
-            </p>
-
-            {/* Analogy Callout Box: Cursor / Copilot Comparison */}
-            <div className="bg-white/95 backdrop-blur-sm border border-slate-200/90 rounded-2xl p-6 space-y-3 elevation-card">
-              <div className="text-xs font-['Space_Grotesk'] font-bold text-amber-700 tracking-wider uppercase flex items-center space-x-2">
-                <Terminal className="w-4 h-4 text-amber-600" />
-                <span>ARCHITECTURAL PARALLEL: BEYOND CODING COPILOTS</span>
-              </div>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Coding assistants (Cursor, GitHub Copilot) succeed because programming syntax is rule-bound. Optimaa extends adaptive in-context assistance into messy, unscripted desktop and industrial environments.
-              </p>
-              <div className="pt-3 border-t border-slate-100 text-xs text-slate-700 flex items-start space-x-2">
-                <span className="font-['Space_Grotesk'] font-bold text-emerald-700 shrink-0">Assistive philosophy:</span>
-                <span>Built strictly to augment human operators and eliminate manual grunt work, explicitly rejecting automation that eliminates employment.</span>
-              </div>
-            </div>
-
-            {/* Authors & Meta */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-2 text-xs text-slate-500">
-              <div>
-                <span className="text-slate-900 font-['Space_Grotesk'] font-bold text-sm">Ayushya Ramesh Ojha &amp; Aryan Jain</span>
-                <span className="block text-slate-500 font-mono text-[11px] mt-0.5">Co-Founders &bull; BITS Pilani &bull; Idea-Stage Concept</span>
-              </div>
+            {/* 3 Interactive Example Selectors */}
+            <div className="flex items-center space-x-1 bg-white p-1 rounded-xl border border-slate-200">
               <button
-                onClick={onOpenDeck}
-                className="inline-flex items-center space-x-2 text-emerald-700 hover:text-emerald-900 font-['Space_Grotesk'] font-bold transition-all hover:translate-x-1 cursor-pointer bg-white border border-emerald-200 hover:border-emerald-300 px-4 py-2 rounded-xl shadow-xs"
+                onClick={() => setActiveTab('dwsim')}
+                className={`px-3 py-1.5 text-xs font-['Space_Grotesk'] font-semibold rounded-lg transition-all cursor-pointer ${
+                  activeTab === 'dwsim'
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
               >
-                <span>View 7-Slide Deck</span>
-                <ArrowRight className="w-4 h-4" />
+                Chemical Simulation
+              </button>
+              <button
+                onClick={() => setActiveTab('touch')}
+                className={`px-3 py-1.5 text-xs font-['Space_Grotesk'] font-semibold rounded-lg transition-all cursor-pointer ${
+                  activeTab === 'touch'
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Invisible Touch Hitbox
+              </button>
+              <button
+                onClick={() => setActiveTab('elderly')}
+                className={`px-3 py-1.5 text-xs font-['Space_Grotesk'] font-semibold rounded-lg transition-all cursor-pointer ${
+                  activeTab === 'elderly'
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Senior Smartphone Care
               </button>
             </div>
           </div>
 
-          {/* Right Column: Live Interactive Observer Visualizer */}
-          <div className="lg:col-span-5">
-            <div className="bg-white border border-slate-200/90 rounded-3xl p-6 elevation-card elevation-hover space-y-6">
-              
-              {/* Laptop Screen Simulator */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-rose-400" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-400" />
-                    <span className="text-[11px] font-mono font-semibold text-slate-500 ml-2">SYSTEM_OBSERVER_DAEMON</span>
-                  </div>
-                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center space-x-1">
-                    <Sparkles className="w-3 h-3 text-emerald-600" />
-                    <span>ACTIVE &bull; 10 HZ LOOP</span>
-                  </span>
-                </div>
-
-                {/* Live Diagnostic Telemetry Grid */}
-                <div className="grid grid-cols-3 gap-2 bg-slate-50/80 p-3 rounded-2xl border border-slate-200 font-mono text-center">
-                  <div className="p-1.5 bg-white rounded-xl border border-slate-200/80">
-                    <div className="text-[10px] text-slate-600 font-medium uppercase">DAEMON RAM</div>
-                    <div className="text-xs font-bold text-slate-900 mt-0.5">16.4 MB</div>
-                  </div>
-                  <div className="p-1.5 bg-white rounded-xl border border-slate-200/80">
-                    <div className="text-[10px] text-slate-600 font-medium uppercase">CPU USAGE</div>
-                    <div className="text-xs font-bold text-emerald-700 mt-0.5">&lt; 0.8%</div>
-                  </div>
-                  <div className="p-1.5 bg-white rounded-xl border border-slate-200/80">
-                    <div className="text-[10px] text-slate-600 font-medium uppercase">LEAK RISK</div>
-                    <div className="text-xs font-bold text-emerald-700 mt-0.5">0.0% (Local)</div>
-                  </div>
-                </div>
-
-                <div className="bg-slate-50/90 border border-slate-200 rounded-2xl p-4 space-y-2.5">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-500">Active Workflow Context</span>
-                    <span className="text-slate-900 font-mono font-semibold text-[11px]">{current.subtitle.split(',')[0]}</span>
-                  </div>
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-500">Telemetry Calibration</span>
-                    <span className="text-emerald-700 font-mono font-bold text-[11px]">48h to 72h Calibrated</span>
-                  </div>
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-500">Assistive Core Mechanism</span>
-                    <span className="text-amber-700 font-bold text-xs">{current.metrics}</span>
-                  </div>
-                </div>
+          {/* Side by Side Comparison Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+            {/* Without Optimaa */}
+            <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-3">
+              <div className="flex items-center justify-between text-xs border-b border-slate-100 pb-2">
+                <span className="font-['Space_Grotesk'] font-bold text-rose-600 uppercase tracking-wider">
+                  Without Optimaa (Manual Grunt Work)
+                </span>
+                <span className="text-slate-400 font-mono text-[11px]">{current.software}</span>
               </div>
-
-              {/* 4 Interactive Domain Trigger Nodes */}
-              <div className="space-y-2">
-                <div className="text-[11px] font-['Space_Grotesk'] font-bold text-slate-500 uppercase tracking-wider">
-                  Select Application Domain:
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    onClick={() => setActiveTab('industrial')}
-                    className={`p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
-                      activeTab === 'industrial'
-                        ? 'bg-emerald-50 border-emerald-500 shadow-sm'
-                        : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'
-                    }`}
-                  >
-                    <div className="text-xs font-['Space_Grotesk'] font-bold text-emerald-700">01. Industrial</div>
-                    <div className="text-[11px] text-slate-500 truncate">DWSIM &amp; CAD</div>
-                  </button>
-
-                  <button
-                    onClick={() => setActiveTab('corporate')}
-                    className={`p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
-                      activeTab === 'corporate'
-                        ? 'bg-amber-50 border-amber-500 shadow-sm'
-                        : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'
-                    }`}
-                  >
-                    <div className="text-xs font-['Space_Grotesk'] font-bold text-amber-700">02. Corporate</div>
-                    <div className="text-[11px] text-slate-500 truncate">GTM Launch</div>
-                  </button>
-
-                  <button
-                    onClick={() => setActiveTab('mobile')}
-                    className={`p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
-                      activeTab === 'mobile'
-                        ? 'bg-amber-50 border-amber-500 shadow-sm'
-                        : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'
-                    }`}
-                  >
-                    <div className="text-xs font-['Space_Grotesk'] font-bold text-amber-700">03. Mobile OS</div>
-                    <div className="text-[11px] text-slate-500 truncate">Adaptive Touch</div>
-                  </button>
-
-                  <button
-                    onClick={() => setActiveTab('accessibility')}
-                    className={`p-3 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
-                      activeTab === 'accessibility'
-                        ? 'bg-emerald-50 border-emerald-500 shadow-sm'
-                        : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'
-                    }`}
-                  >
-                    <div className="text-xs font-['Space_Grotesk'] font-bold text-emerald-700">04. Accessibility</div>
-                    <div className="text-[11px] text-slate-500 truncate">D2C Elderly Care</div>
-                  </button>
-                </div>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {current.without}
+              </p>
+              <div className="text-xs text-slate-400 pt-2 flex items-center space-x-1.5">
+                <span>Result: Repetitive manual input, cognitive fatigue, lost time.</span>
               </div>
+            </div>
 
-              {/* Dynamic Domain Brief */}
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 transition-all duration-300">
-                <div className="flex items-center justify-between">
-                  <span className="font-['Space_Grotesk'] font-bold text-sm text-slate-900">{current.title}</span>
-                  <span className={`text-[10px] font-['Space_Grotesk'] font-bold px-2 py-0.5 rounded-full ${current.pillBg}`}>
-                    {current.badge}
-                  </span>
-                </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {current.desc}
-                </p>
-                <a
-                  href={current.targetId}
-                  className={`inline-flex items-center space-x-1 text-xs font-bold ${current.textColor} hover:underline pt-1`}
-                >
-                  <span>{current.actionText}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+            {/* With Optimaa */}
+            <div className="bg-white border border-emerald-300 rounded-xl p-5 space-y-3 relative shadow-xs">
+              <div className="flex items-center justify-between text-xs border-b border-emerald-100 pb-2">
+                <span className="font-['Space_Grotesk'] font-bold text-emerald-700 uppercase tracking-wider flex items-center space-x-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span>With Optimaa (In-Context Pre-Staging)</span>
+                </span>
+                <span className="text-emerald-700 font-mono text-[11px] font-bold bg-emerald-50 px-2 py-0.5 rounded">
+                  {current.badge}
+                </span>
               </div>
+              <p className="text-sm text-slate-800 leading-relaxed font-medium">
+                {current.withOptimaa}
+              </p>
+              <div className="text-xs text-emerald-700 pt-2 flex items-center space-x-1.5">
+                <span>Result: Instant review &bull; 1 click to confirm &bull; Zero prompt engineering.</span>
+              </div>
+            </div>
+          </div>
 
+          {/* 3 Ground Rules (Clean Banner) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 text-xs text-slate-600">
+            <div className="flex items-start space-x-2">
+              <ShieldCheck className="w-4 h-4 text-slate-700 shrink-0 mt-0.5" />
+              <span><strong>Runs 100% locally on-device.</strong> Sensitive apps auto-blur. Zero screen recordings or keystrokes sent to the cloud.</span>
+            </div>
+            <div className="flex items-start space-x-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+              <span><strong>You stay in command.</strong> Optimaa only pre-fills parameters; you always confirm before any action executes.</span>
+            </div>
+            <div className="flex items-start space-x-2">
+              <Cpu className="w-4 h-4 text-slate-700 shrink-0 mt-0.5" />
+              <span><strong>Silent background runtime.</strong> Uses &lt; 1.5% CPU and &lt; 20MB RAM, preserving battery and machine performance.</span>
             </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );
