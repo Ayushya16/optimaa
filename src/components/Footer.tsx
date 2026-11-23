@@ -43,15 +43,65 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDeck }) => {
           </div>
         </div>
 
+        {/* Signatures & Team Governance Block (Matching Application) */}
+        <div className="space-y-4 pt-4">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+            <span className="font-['Space_Grotesk'] font-bold text-xs uppercase tracking-wider text-slate-900">
+              3. Signatures &amp; Team Governance
+            </span>
+            <span className="text-[11px] font-medium text-slate-500">
+              50% / 50% Equity Split &bull; Purely Idea Stage
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+            {/* Founder 1 Signature Card */}
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3 hover:border-slate-300 hover:bg-white transition-all">
+              <div className="h-10 border-b-2 border-slate-900 flex items-end pb-1">
+                <span className="font-['Space_Grotesk'] text-slate-400 text-xs italic tracking-widest font-mono">
+                  [Verified Application Signoff]
+                </span>
+              </div>
+              <div>
+                <h4 className="font-['Space_Grotesk'] font-bold text-sm text-slate-900">
+                  Ayushya Ramesh Ojha
+                </h4>
+                <div className="text-[11px] text-slate-500 mt-0.5 space-y-0.5">
+                  <div className="font-medium text-slate-700">Co-Founder</div>
+                  <div>Current Student, BITS Pilani &bull; Indian Citizen</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Founder 2 Signature Card */}
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3 hover:border-slate-300 hover:bg-white transition-all">
+              <div className="h-10 border-b-2 border-slate-900 flex items-end pb-1">
+                <span className="font-['Space_Grotesk'] text-slate-400 text-xs italic tracking-widest font-mono">
+                  [Verified Application Signoff]
+                </span>
+              </div>
+              <div>
+                <h4 className="font-['Space_Grotesk'] font-bold text-sm text-slate-900">
+                  Aryan Jain
+                </h4>
+                <div className="text-[11px] text-slate-500 mt-0.5 space-y-0.5">
+                  <div className="font-medium text-slate-700">Co-Founder</div>
+                  <div>Current Student, BITS Pilani &bull; Indian Citizen</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Authors & Design System Notes */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-slate-500 text-[11px]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-slate-500 text-[11px] pt-4 border-t border-slate-100">
           <div>
-            Co-Founders: <span className="text-slate-900 font-semibold">Ayushya Ramesh Ojha</span> &amp; <span className="text-slate-900 font-semibold">Aryan Jain</span> &bull; BITS Pilani
+            Optimaa &bull; Submitted for PIEDS First Principles Fund Application
           </div>
           <div className="flex items-center space-x-4">
-            <span>Idea-Stage Concept</span>
+            <span>Website: <a href="https://ayushya16.github.io/optimaa/" className="text-emerald-700 hover:underline font-semibold">https://ayushya16.github.io/optimaa/</a></span>
             <span>&bull;</span>
-            <span>First Principles Fund</span>
+            <span>Zero External Funding</span>
           </div>
         </div>
 

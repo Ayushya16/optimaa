@@ -50,3 +50,13 @@ body {
 .animate-pulse-subtle {
   animation: pulse-subtle 2.5s ease-in-out infinite;
 }
+
+/* Taste-Skill micro-interactions: tactile button press and crisp card lifts */
+button:active {
+  transform: scale(0.98);
+}
+
+.elevation-card {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+

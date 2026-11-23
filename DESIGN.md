@@ -1,4 +1,4 @@
-# DESIGN.md — Optimaa Design System
+# DESIGN.md: Optimaa Design System
 
 > **Visual Design Specification for Optimaa**
 > Formatted according to Google Stitch / VoltAgent DESIGN.md standard.

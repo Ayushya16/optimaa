@@ -42,7 +42,7 @@ export const IndustrialSection: React.FC = () => {
             Simulation setup is repetitive, so DWSIM can learn it and stage it for you.
           </h2>
           <p className="text-sm text-slate-600 max-w-3xl">
-            Why DWSIM as our initial testing ground: It is fully open-source, scriptable via Python APIs, and free of closed proprietary licensing hurdles—making it the ideal environment to prove that solver convergence (residual &lt; 10^-11) guarantees zero hallucination.
+            Why DWSIM as our initial testing ground: It is fully open-source, scriptable via Python APIs, and free of closed proprietary licensing hurdles, making it the ideal environment to prove that solver convergence (residual &lt; 10^-11) guarantees zero hallucination.
           </p>
         </div>
 

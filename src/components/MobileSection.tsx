@@ -275,7 +275,7 @@ export const MobileSection: React.FC = () => {
               <div className="space-y-2.5 text-xs text-slate-600">
                 <div className="flex items-start space-x-2">
                   <span className="font-bold text-slate-900 shrink-0">• Optimaa&apos;s expansion:</span>
-                  <span>We take this exact ambient principle into full desktop software—pre-filling parameters, staging next modes, and collapsing tedious menus.</span>
+                  <span>We take this exact ambient principle into full desktop software: pre-filling parameters, staging next modes, and collapsing tedious menus.</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <span className="font-bold text-slate-900 shrink-0">• Hardware self-blur:</span>

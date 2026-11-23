@@ -141,7 +141,7 @@ export const RoadmapSection: React.FC = () => {
             <div className="bg-white border border-slate-200 p-5 rounded-2xl space-y-2 shadow-sm hover:-translate-y-0.5 transition-all duration-200">
               <div className="flex justify-between items-center">
                 <span className="text-[10px] font-['Space_Grotesk'] font-bold text-emerald-700 uppercase tracking-wider">
-                  PHASE 01 (MONTH 1–2)
+                  PHASE 01 (MONTH 1-2)
                 </span>
                 <span className="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">Discovery</span>
               </div>
@@ -180,7 +180,7 @@ export const RoadmapSection: React.FC = () => {
             <div className="bg-white border border-slate-200 p-5 rounded-2xl space-y-2 shadow-sm hover:-translate-y-0.5 transition-all duration-200">
               <div className="flex justify-between items-center">
                 <span className="text-[10px] font-['Space_Grotesk'] font-bold text-emerald-700 uppercase tracking-wider">
-                  PHASE 04 (MONTH 5–6)
+                  PHASE 04 (MONTH 5-6)
                 </span>
                 <span className="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">Validation</span>
               </div>

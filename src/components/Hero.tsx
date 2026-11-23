@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-['Space_Grotesk'] font-bold tracking-tight text-slate-900 leading-[1.12]">
-            An assistant that learns how you work—and sets up your next step.
+            An assistant that learns how you work, then prepares your next step.
           </h1>
 
           <p className="text-lg text-slate-600 leading-relaxed font-normal">
