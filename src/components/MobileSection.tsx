@@ -26,13 +26,13 @@ export const MobileSection: React.FC = () => {
         <div className="space-y-3">
           <div className="text-xs font-['Space_Grotesk'] font-bold text-amber-700 uppercase tracking-wider flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-            <span>USE CASE 03 | PERSONAL MOBILE &amp; PROVEN AMBIENT TECH</span>
+            <span>USE CASE 03 | PERSONAL MOBILE &amp; PROVEN ASSISTIVE TECH</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-['Space_Grotesk'] font-bold text-slate-900 tracking-tight">
             Assistive AI is already proven on phones, and sensitive apps stay off the record.
           </h2>
           <p className="text-sm text-slate-600 max-w-3xl">
-            You already use ambient AI without realizing it: modern smartphone keyboards (such as Apple iOS QuickType) dynamically expand touch hitboxes based on letter probability without asking for prompts. Optimaa takes this exact proven principle and scales it to desktop applications and full workflows.
+            You already use prompt-free in-context AI without realizing it: modern smartphone keyboards (such as Apple iOS QuickType) dynamically expand touch hitboxes based on letter probability without asking for prompts. Optimaa takes this exact proven principle and scales it to desktop applications and full technical workflows.
           </p>
         </div>
 

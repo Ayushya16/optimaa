@@ -72,12 +72,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDeck }) => {
 
             {/* Dropdown Popover */}
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-72 sm:w-80 bg-white border border-slate-200 rounded-2xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                <div className="px-3 py-2 border-b border-slate-100 flex items-center justify-between">
+              <div className="absolute right-0 mt-2 w-72 sm:w-80 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                <div className="px-3.5 py-2 border-b border-slate-100 flex items-center justify-between">
                   <span className="text-[11px] font-['Space_Grotesk'] font-bold uppercase tracking-wider text-slate-500">
                     Jump to Section
                   </span>
-                  <span className="text-[10px] text-slate-500 font-mono font-medium">7 SECTIONS</span>
+                  <span className="text-[10px] text-slate-400 font-mono font-medium">ESC TO CLOSE</span>
                 </div>
 
                 <div className="p-1.5 space-y-0.5 max-h-[75vh] overflow-y-auto">
@@ -88,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDeck }) => {
                         key={item.href}
                         href={item.href}
                         onClick={() => setDropdownOpen(false)}
-                        className="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
+                        className="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-slate-50/90 transition-all group cursor-pointer border border-transparent hover:border-slate-200/60"
                       >
                         <div className="p-1.5 rounded-lg bg-slate-100 group-hover:bg-emerald-100/60 transition-colors shrink-0 mt-0.5">
                           <IconComponent className={`w-4 h-4 ${item.color}`} />

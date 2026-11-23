@@ -50,7 +50,7 @@ export const IndustrialSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: DWSIM Setup Split */}
-          <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="lg:col-span-7 bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 space-y-6 elevation-card elevation-hover">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
               <div>
                 <span className="text-xs font-['Space_Grotesk'] font-bold tracking-wider uppercase text-emerald-700">
@@ -62,7 +62,7 @@ export const IndustrialSection: React.FC = () => {
               </div>
 
               {/* Interactive Toggle */}
-              <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200">
+              <div className="flex items-center bg-slate-100/80 p-1 rounded-xl border border-slate-200">
                 <button
                   onClick={() => setIsPreStaged(false)}
                   className={`px-3 py-1.5 text-xs font-['Space_Grotesk'] font-bold rounded-lg transition-all duration-200 cursor-pointer ${

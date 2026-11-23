@@ -28,7 +28,7 @@ export const PrinciplesSection: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10">
             
             {/* Quadrant 1: People & Agency */}
-            <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200/90 elevation-card elevation-hover">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2.5">
                   <div className="w-3 h-3 rounded-full bg-emerald-500" />
@@ -46,13 +46,13 @@ export const PrinciplesSection: React.FC = () => {
               <p className="text-sm text-slate-600 leading-relaxed">
                 Explicitly rejects automation that replaces jobs; user stays in command of every decision. When user overrides a staged setting, local model weights update immediately.
               </p>
-              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500">
-                <strong>Measurable KPI:</strong> &gt; 80% of pre-staged parameter recommendations accepted without manual override after 72h baseline.
+              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500 font-mono text-[11px]">
+                <strong className="text-slate-800">MEASURABLE KPI:</strong> &gt; 80% parameter acceptance rate after 72h baseline.
               </div>
             </div>
 
             {/* Quadrant 2: Physics & Proof */}
-            <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200/90 elevation-card elevation-hover">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2.5">
                   <div className="w-3 h-3 rounded-full bg-amber-500" />
@@ -70,13 +70,13 @@ export const PrinciplesSection: React.FC = () => {
               <p className="text-sm text-slate-600 leading-relaxed">
                 Eliminates AI hallucination by anchoring pre-staging to deterministic DWSIM thermodynamic flash solver convergence before triggering flowsheet execution.
               </p>
-              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500">
-                <strong>Measurable KPI:</strong> Zero unvalidated parameters executed; 100% of staged flowsheet variables pass solver mathematical balance checks.
+              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500 font-mono text-[11px]">
+                <strong className="text-slate-800">MEASURABLE KPI:</strong> 100% staged variables pass solver mathematical balance checks.
               </div>
             </div>
 
             {/* Quadrant 3: Privacy Boundary */}
-            <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200/90 elevation-card elevation-hover">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2.5">
                   <div className="w-3 h-3 rounded-full bg-emerald-500" />
@@ -94,13 +94,13 @@ export const PrinciplesSection: React.FC = () => {
               <p className="text-sm text-slate-600 leading-relaxed">
                 Instant hardware-level freeze when banking, passwords, or confidential documents open. Zero background screen frames or keystroke tokens stored.
               </p>
-              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500">
-                <strong>Measurable KPI:</strong> 100% zero-leakage window isolation; sensitive credentials are never stored in memory or sent to the cloud.
+              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500 font-mono text-[11px]">
+                <strong className="text-slate-800">MEASURABLE KPI:</strong> 100% zero-leakage window isolation; credentials never stored.
               </div>
             </div>
 
             {/* Quadrant 4: System Overhead */}
-            <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="space-y-3 p-6 rounded-2xl bg-white border border-slate-200/90 elevation-card elevation-hover">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2.5">
                   <div className="w-3 h-3 rounded-full bg-amber-500" />
@@ -118,8 +118,8 @@ export const PrinciplesSection: React.FC = () => {
               <p className="text-sm text-slate-600 leading-relaxed">
                 Operates silently on-chip with negligible battery draw and zero perceptible input latency during the 72h observation period.
               </p>
-              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500">
-                <strong>Measurable KPI:</strong> &lt; 1.5% average CPU background utilization; zero frame drops or typing delays during active use.
+              <div className="pt-2 border-t border-slate-100 text-xs text-slate-500 font-mono text-[11px]">
+                <strong className="text-slate-800">MEASURABLE KPI:</strong> &lt; 1.5% CPU background utilization; 0 frame drops or typing delays.
               </div>
             </div>
 

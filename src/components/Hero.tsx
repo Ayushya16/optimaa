@@ -66,24 +66,24 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
   const current = tabData[activeTab];
 
   return (
-    <section id="overview" className="relative pt-12 pb-24 overflow-hidden border-b border-slate-200 bg-gradient-to-b from-white via-slate-50 to-slate-100/60">
+    <section id="overview" className="relative pt-12 pb-24 overflow-hidden border-b border-slate-200 bg-gradient-to-b from-white via-slate-50/80 to-slate-100/50 tech-grid">
       {/* Background Ambient Splatter Glows */}
-      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-200/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 -right-48 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-200/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 -right-48 w-96 h-96 bg-amber-200/25 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Core Positioning */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center space-x-2 text-xs font-['Space_Grotesk'] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full shadow-xs">
+            <div className="inline-flex items-center space-x-2 text-xs font-['Space_Grotesk'] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50/90 border border-emerald-200 px-3.5 py-1 rounded-full shadow-xs">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>OPTIMAA &bull; PRODUCT STRATEGY &amp; CONCEPT SPEC</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-['Space_Grotesk'] font-bold tracking-tight text-slate-900 leading-[1.08]">
-              Assistive AI Tech Idea: <br />
-              <span className="text-emerald-600">Ambient Workflow</span> <br />
+              Assistive AI Architecture: <br />
+              <span className="text-emerald-600">In-Context Workflow</span> <br />
               Optimization Engine
             </h1>
 
@@ -92,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
             </p>
 
             {/* Analogy Callout Box: Cursor / Copilot Comparison */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="bg-white/95 backdrop-blur-sm border border-slate-200/90 rounded-2xl p-6 space-y-3 elevation-card">
               <div className="text-xs font-['Space_Grotesk'] font-bold text-amber-700 tracking-wider uppercase flex items-center space-x-2">
                 <Terminal className="w-4 h-4 text-amber-600" />
                 <span>ARCHITECTURAL PARALLEL: BEYOND CODING COPILOTS</span>
@@ -110,11 +110,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
             <div className="flex flex-wrap items-center justify-between gap-4 pt-2 text-xs text-slate-500">
               <div>
                 <span className="text-slate-900 font-['Space_Grotesk'] font-bold text-sm">Ayushya Ramesh Ojha &amp; Aryan Jain</span>
-                <span className="block text-slate-500">Co-Founders &bull; BITS Pilani &bull; Idea-Stage Concept</span>
+                <span className="block text-slate-500 font-mono text-[11px] mt-0.5">Co-Founders &bull; BITS Pilani &bull; Idea-Stage Concept</span>
               </div>
               <button
                 onClick={onOpenDeck}
-                className="inline-flex items-center space-x-2 text-emerald-700 hover:text-emerald-900 font-['Space_Grotesk'] font-bold transition-all hover:translate-x-1 cursor-pointer bg-emerald-50 border border-emerald-200/80 px-3.5 py-1.5 rounded-lg shadow-xs"
+                className="inline-flex items-center space-x-2 text-emerald-700 hover:text-emerald-900 font-['Space_Grotesk'] font-bold transition-all hover:translate-x-1 cursor-pointer bg-white border border-emerald-200 hover:border-emerald-300 px-4 py-2 rounded-xl shadow-xs"
               >
                 <span>View 7-Slide Deck</span>
                 <ArrowRight className="w-4 h-4" />
@@ -124,7 +124,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
 
           {/* Right Column: Live Interactive Observer Visualizer */}
           <div className="lg:col-span-5">
-            <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xl space-y-6 hover:shadow-2xl transition-all duration-300">
+            <div className="bg-white border border-slate-200/90 rounded-3xl p-6 elevation-card elevation-hover space-y-6">
               
               {/* Laptop Screen Simulator */}
               <div className="space-y-3">
@@ -133,26 +133,42 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDeck }) => {
                     <div className="w-3 h-3 rounded-full bg-rose-400" />
                     <div className="w-3 h-3 rounded-full bg-amber-400" />
                     <div className="w-3 h-3 rounded-full bg-emerald-400" />
-                    <span className="text-[11px] font-['Space_Grotesk'] font-semibold text-slate-500 ml-2">SYSTEM TELEMETRY OBSERVER</span>
+                    <span className="text-[11px] font-mono font-semibold text-slate-500 ml-2">SYSTEM_OBSERVER_DAEMON</span>
                   </div>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center space-x-1">
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center space-x-1">
                     <Sparkles className="w-3 h-3 text-emerald-600" />
-                    <span>SCANNING IN CONTEXT</span>
+                    <span>ACTIVE &bull; 10 HZ LOOP</span>
                   </span>
                 </div>
 
-                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+                {/* Live Diagnostic Telemetry Grid */}
+                <div className="grid grid-cols-3 gap-2 bg-slate-50/80 p-3 rounded-2xl border border-slate-200 font-mono text-center">
+                  <div className="p-1.5 bg-white rounded-xl border border-slate-200/80">
+                    <div className="text-[10px] text-slate-600 font-medium uppercase">DAEMON RAM</div>
+                    <div className="text-xs font-bold text-slate-900 mt-0.5">16.4 MB</div>
+                  </div>
+                  <div className="p-1.5 bg-white rounded-xl border border-slate-200/80">
+                    <div className="text-[10px] text-slate-600 font-medium uppercase">CPU USAGE</div>
+                    <div className="text-xs font-bold text-emerald-700 mt-0.5">&lt; 0.8%</div>
+                  </div>
+                  <div className="p-1.5 bg-white rounded-xl border border-slate-200/80">
+                    <div className="text-[10px] text-slate-600 font-medium uppercase">LEAK RISK</div>
+                    <div className="text-xs font-bold text-emerald-700 mt-0.5">0.0% (Local)</div>
+                  </div>
+                </div>
+
+                <div className="bg-slate-50/90 border border-slate-200 rounded-2xl p-4 space-y-2.5">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-500">Active Target</span>
-                    <span className="text-slate-800 font-mono font-medium">{current.subtitle.split(',')[0]}</span>
+                    <span className="text-slate-500">Active Workflow Context</span>
+                    <span className="text-slate-900 font-mono font-semibold text-[11px]">{current.subtitle.split(',')[0]}</span>
                   </div>
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-500">Baseline Learning</span>
-                    <span className="text-emerald-700 font-bold">48h to 72h Calibrated</span>
+                    <span className="text-slate-500">Telemetry Calibration</span>
+                    <span className="text-emerald-700 font-mono font-bold text-[11px]">48h to 72h Calibrated</span>
                   </div>
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-500">Key Pillar</span>
-                    <span className="text-amber-700 font-bold">{current.metrics}</span>
+                    <span className="text-slate-500">Assistive Core Mechanism</span>
+                    <span className="text-amber-700 font-bold text-xs">{current.metrics}</span>
                   </div>
                 </div>
               </div>
